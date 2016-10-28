@@ -1,0 +1,20 @@
+Host *
+  ForwardAgent yes
+
+ControlMaster auto
+ControlPath /tmp/ssh_mux_%h_%p_%r
+ControlPersist yes
+ServerAliveInterval 30
+ServerAliveCountMax 120
+CheckHostIP no
+KeepAlive yes
+TCPKeepAlive yes
+PermitLocalCommand yes
+PreferredAuthentications publickey
+Ciphers blowfish-cbc
+
+Host *.virool
+  User virool
+
+Host *
+  ForwardAgent yes

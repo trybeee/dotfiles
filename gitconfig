@@ -1,0 +1,22 @@
+[user]
+    name = Dmitry Novotochinov
+      email = trybeee@gmail.com
+[core]
+    excludesfile = /Users/trybeee/.gitignore_global
+      quotepath = false
+[difftool "sourcetree"]
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+      path =
+[mergetool "sourcetree"]
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+      trustExitCode = true
+[color]
+    ui = true
+[github]
+    user = trybeee
+[help]
+    autocorrect = 1
+[alias]
+    lol = log --pretty=oneline --abbrev-commit --graph --decorate
+[credential]
+    helper = cache
