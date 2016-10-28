@@ -1,5 +1,4 @@
 - clean: ['~']
-
 - link:
     ~/.profile: profile
     ~/.ssh/config:
@@ -9,28 +8,12 @@
     ~/.vimrc: vimrc
     ~/.zprofile: zprofile
     ~/.zshrc: zshrc
-    ~/.Xresources: Xresources
     ~/.lein/profiles.clj:
       create: true
       path: profiles.clj
     ~/.sbt/0.13/plugins/plugins.sbt:
       create: true
       path: plugins.sbt
-    ~/.sbt/0.13/global.sbt:
-      create: true
-      path: global.sbt
     ~/.spacemacs: spacemacs
 - shell:
   - [git submodule update --init --recursive, Installing/updating submodules]
-- clean: ['~']
-
-- link:
-    ~/.profile: profile
-    ~/.gitconfig: gitconfig
-    ~/.ssh/config:
-        path: ssh/config
-        create: true
-    ~/.zprofile: zprofile
-    ~/.zshrc: zshrc
-
-
