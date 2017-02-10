@@ -19,6 +19,6 @@
                    "dev" ^{:doc "Run development repl"}
                    ["do" "clean" ["repl" ":headless"]]}
          :ultra {:color-scheme :solarized_dark}}
- :repl {:plugins [[cider/cider-nrepl "0.14.0-SNAPSHOT"]
+ :repl {:plugins [[cider/cider-nrepl "0.15.0-SNAPSHOT"]
                   [refactor-nrepl "2.3.0-SNAPSHOT"]]}}
 

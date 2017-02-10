@@ -11,7 +11,7 @@ KeepAlive yes
 TCPKeepAlive yes
 PermitLocalCommand yes
 PreferredAuthentications publickey
-Ciphers blowfish-cbc
+# Ciphers blowfish-cbc
 
 Host *.virool
   User virool

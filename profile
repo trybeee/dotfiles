@@ -67,3 +67,6 @@ export EDITOR="vim"
 export SDKMAN_DIR="/Users/trybeee/.sdkman"
 [[ -s "/Users/trybeee/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/trybeee/.sdkman/bin/sdkman-init.sh"
 fi
+
+export GOPATH=/Users/trybeee/go
+export PATH=$GOPATH/bin:$PATH

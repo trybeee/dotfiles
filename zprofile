@@ -69,3 +69,8 @@ alias lockscreen='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/
 function psql2 {
   psql -p 6432 -U `cat ~/.pgpass | grep $1 | cut -d: -f4` -h `cat ~/.pgpass | grep $1 | cut -d: -f1` $2
 }
+
+export GOPATH=/Users/trybeee/go
+export PATH=$GOPATH/bin:$PATH
+
+source ~/.wakatime.apikey
