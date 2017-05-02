@@ -83,3 +83,5 @@ psql2 () {
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/trybeee/.sdkman"
 [[ -s "/Users/trybeee/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/trybeee/.sdkman/bin/sdkman-init.sh"
+
+echo "\n\n** Be Present **\n\n"
