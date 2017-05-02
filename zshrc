@@ -54,7 +54,7 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/trybeee/.rvm/bin:/opt/local/bin:/opt/local/sbin:/usr/local/sbin:/usr/local/mysql/bin:~/bin:/Users/trybeee/.ec2/bin:/Users/trybeee/.ec2/bin
 
-source /Users/trybeee/.zprofile
+source ~/.zprofile
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
@@ -78,7 +78,7 @@ psql2 () {
   psql -U `cat ~/.pgpass | grep $1 | cut -d: -f4` -h `cat ~/.pgpass | grep $1 | cut -d: -f1` $2
 }
 
-source /Users/trybeee/.iterm2_shell_integration.zsh
+# source /Users/trybeee/.iterm2_shell_integration.zsh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/trybeee/.sdkman"
