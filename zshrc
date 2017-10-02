@@ -85,3 +85,35 @@ export SDKMAN_DIR="/Users/trybeee/.sdkman"
 [[ -s "/Users/trybeee/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/trybeee/.sdkman/bin/sdkman-init.sh"
 
 echo "\n\n** Be Present **\n\n"
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+
+# docker login
+# docker pull virool/virool:master
+alias virool_docker="docker run -it -v $(pwd)/.git:/virool/app/.git -v $(pwd)/.gitignore:/virool/app/.gitignore -v ~/.ssh/id_rsa:/root/.ssh/id_rsa --entrypoint bash virool/virool:master"
+
+function _kube_pod() {
+  kubectl get pods | grep $1 | cut -d" " -f 1 | head -n 1
+}
+
+function kuberails() {
+    kubectl exec -ti $(_kube_pod virool-web) -c virool-web -- bundle exec rails c production
+}
+
+function kubeto() {
+#context=$(echo $1 | tr '[:lower:]' '[:upper:]')
+  cont=$(kubectl --context=$context get pods | grep $1 | cut -d" " -f 1 | head -n 1)
+  kubectl --context=$context exec -ti $cont --container $2 bash
+}
+
+function kubelogs() {
+    kubeto $1 logs
+}
+
+function kubeapp() {
+    kubeto $1 $1
+}
+
+
