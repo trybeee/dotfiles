@@ -7,21 +7,7 @@ export SVN_EDITOR="vim"
 
 export ACKRC="~/.ackrc"
 
-# # git aliases
-alias gst='git status -sb'
-# alias ga='git add'
-alias gc='git commit -m'
-# alias gp='git pull && git push'
-alias gull='git pull'
-alias gush='git push'
-# alias gb='git branch'
-alias gco='git checkout'
-alias gd='git diff'
-# alias gdw='git diff --word-diff'
-# alias gm='git merge -m'
-
 source ~/.ssh_aliases
-
 
 export DISABLE_AUTO_TITLE=true
 
