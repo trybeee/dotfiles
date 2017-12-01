@@ -72,8 +72,6 @@ export_boot2docker
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
-alias gu="git up"
-
 psql2 () {
   psql -U `cat ~/.pgpass | grep $1 | cut -d: -f4` -h `cat ~/.pgpass | grep $1 | cut -d: -f1` $2
 }
