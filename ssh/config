@@ -11,9 +11,9 @@ KeepAlive yes
 TCPKeepAlive yes
 PermitLocalCommand yes
 PreferredAuthentications publickey
-Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,blowfish-cbc,aes128-cbc,3des-cbc,cast128-cbc,arcfour,aes192-cbc,aes256-cbc
-HostkeyAlgorithms +ssh-dss
-KexAlgorithms +diffie-hellman-group1-sha1
+# Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,blowfish-cbc,aes128-cbc,3des-cbc,cast128-cbc,arcfour,aes192-cbc,aes256-cbc
+# HostkeyAlgorithms +ssh-dss
+# KexAlgorithms +diffie-hellman-group1-sha1
 
 Host *.virool
   User virool
