@@ -20,3 +20,5 @@
     lol = log --pretty=oneline --abbrev-commit --graph --decorate
 [credential]
     helper = cache
+[commit]
+	gpgsign = true
