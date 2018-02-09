@@ -114,4 +114,10 @@ function kubeapp() {
     kubeto $1 $1
 }
 
+export ANDROID_NDK_HOME=/Users/trybeee/Library/Android/sdk/ndk-bundle
 
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+
+export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"
+alias jenv_set_java_home='export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"'

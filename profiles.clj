@@ -2,6 +2,7 @@
                         [org.clojure/tools.nrepl "0.2.12"] ]
          :plugins  [[jonase/eastwood "0.2.3"]
                     [lein-ancient "0.6.10"]
+                    [lein-bikeshed "0.5.0"]
                     [lein-cljfmt "0.5.6"]
                     [lein-kibit "0.1.2"]
                     [lein-hiera "0.9.5"]
@@ -21,6 +22,6 @@
                    "dev" ^{:doc "Run development repl"}
                    ["do" "clean" ["repl" ":headless"]]}
          :ultra {:color-scheme :solarized_dark}}
- :repl {:plugins [[cider/cider-nrepl "0.15.1-SNAPSHOT"]
-                  [refactor-nrepl "2.3.0-SNAPSHOT"]]}}
+ :repl {:plugins [[cider/cider-nrepl "0.17.0-SNAPSHOT"]
+                  [refactor-nrepl "2.4.0-SNAPSHOT"]]}}
 

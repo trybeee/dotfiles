@@ -70,3 +70,4 @@ fi
 
 export GOPATH=/Users/trybeee/go
 export PATH=$GOPATH/bin:$PATH
+
