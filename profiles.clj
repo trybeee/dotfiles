@@ -24,4 +24,3 @@
          :ultra {:color-scheme :solarized_dark}}
  :repl {:plugins [[cider/cider-nrepl "0.17.0-SNAPSHOT"]
                   [refactor-nrepl "2.4.0-SNAPSHOT"]]}}
-
