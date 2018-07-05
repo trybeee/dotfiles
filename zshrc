@@ -115,6 +115,7 @@ function kubeapp() {
 }
 
 export ANDROID_NDK_HOME=/Users/trybeee/Library/Android/sdk/ndk-bundle
+export ANDROID_NDK=/Users/trybeee/Android/android-ndk/android-ndk-r10e
 
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"

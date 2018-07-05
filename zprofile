@@ -24,8 +24,8 @@ alias clj="rlwrap clj"
 alias sml="rlwrap sml"
 
 # load ssh-agent
-ssh-add ~/.ssh/id_rsa
-ssh-add ~/.ssh/virool_id_rsa
+# ssh-add ~/.ssh/id_rsa
+# ssh-add ~/.ssh/virool_id_rsa
 
 export TERM="xterm-256color"
 
@@ -44,7 +44,7 @@ export PATH=~/SDKs/PebbleSDK-2.0.0/bin/:$PATH
 
 
 # virool-workers set up
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home"
+# export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home"
 export KAFKA_CONFIG="/usr/local/etc/kafka"
 
 alias docker-sh="/Applications/Docker/Docker\ Quickstart\ Terminal.app/Contents/Resources/Scripts/start.sh"
@@ -65,7 +65,10 @@ source ~/.wakatime.apikey
 export ANDROID_HOME=${HOME}/Library/Android/sdk
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+export ANDROID_NDK=/Users/trybeee/android-ndk-r10e
 
 export CUDA_HOME=/usr/local/cuda
 export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$CUDA_HOME/lib"
 export PATH="$CUDA_HOME/bin:$PATH"
+
+ export JAVA_HOME="$(jenv prefix)"

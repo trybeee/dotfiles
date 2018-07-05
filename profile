@@ -71,3 +71,6 @@ fi
 export GOPATH=/Users/trybeee/go
 export PATH=$GOPATH/bin:$PATH
 
+# export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"
+export JAVA_HOME="$(jenv prefix)"
+alias jenv_set_java_home='export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"'

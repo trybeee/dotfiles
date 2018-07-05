@@ -268,9 +268,20 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (add-hook 'clojure-mode-hook 'turn-on-fci-mode)
   )
 
+(defun set-figwheel-profile ()
+    (set-variable 'cider-lein-parameters "with-profile +figwheel repl :headless"))
+
+(defun start-cider-repl-with-profile ()
+  (interactive)
+  (letrec ((profile (read-string "Enter profile name: "))
+           (lein-params (concat "with-profile +" profile " repl :headless")))
+    (message "lein-params set to: %s" lein-params)
+    (set-variable 'cider-lein-parameters lein-params)
+    (cider-jack-in)))
+
 (defun status-react-dev ()
   (interactive)
-  (save-some-buffers)
+  ;; (save-some-buffers)
   (with-current-buffer (cider-current-repl-buffer)
     (goto-char (point-max))
     (insert "(use 'figwheel-api :reload)")
@@ -300,6 +311,13 @@ you should place your code here."
     (spacemacs/set-leader-keys-for-major-mode m
       "j" 'cider-project-reset
       "R" 'status-react-dev
+      "J" 'cider-dev))
+
+  (dolist (m '(clojurescript-mode))
+    (spacemacs/set-leader-keys-for-major-mode m
+      "j" 'cider-project-reset
+      "R" 'status-react-dev
+      "F" 'start-cider-repl-with-profile
       "J" 'cider-dev))
 
   ;; (setq-default helm-follow-mode-persistent t)
