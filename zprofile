@@ -7,8 +7,6 @@ export SVN_EDITOR="vim"
 
 export ACKRC="~/.ackrc"
 
-source ~/.ssh_aliases
-
 export DISABLE_AUTO_TITLE=true
 
 # # RVM
