@@ -23,4 +23,7 @@
 [commit]
 	gpgsign = true
 [branch]
-	autosetuprebase = always
+	autoSetupRebase = always
+	sort = -authordate
+[rebase]
+	autoStash = true

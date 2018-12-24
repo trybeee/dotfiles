@@ -29,7 +29,7 @@ export TERM="xterm-256color"
 
 export SSL_CERT_FILE="/usr/local/etc/openssl/certs/cert.pem"
 
-alias gh="open \`git remote -v | grep git@github.com | grep fetch | head -1 | cut -f2 | cut -d' ' -f1 | sed -e's/:/\//' -e 's/git@/http:\/\//'\`"
+# alias gh="open \`git remote -v | grep git@github.com | grep fetch | head -1 | cut -f2 | cut -d' ' -f1 | sed -e's/:/\//' -e 's/git@/http:\/\//'\`"
 
 alias iphone="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"
 
@@ -54,13 +54,11 @@ function psql2 {
   psql -p 6432 -U `cat ~/.pgpass | grep $1 | cut -d: -f4` -h `cat ~/.pgpass | grep $1 | cut -d: -f1` $2
 }
 
-export GOPATH=/Users/trybeee/go
-export PATH=$GOPATH/bin:$PATH
-
 source ~/.wakatime.apikey
 
 
 export ANDROID_HOME=${HOME}/Library/Android/sdk
+export ANDROID_SDK_ROOT=${HOME}/Library/Android/sdk
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 export ANDROID_NDK=/Users/trybeee/android-ndk-r10e
@@ -68,5 +66,12 @@ export ANDROID_NDK=/Users/trybeee/android-ndk-r10e
 export CUDA_HOME=/usr/local/cuda
 export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$CUDA_HOME/lib"
 export PATH="$CUDA_HOME/bin:$PATH"
+export PATH=/Users/trybeee/.nimble/bin:$PATH
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
+export PATH=$PATH:${HOME}/projects/flutter/bin
+
+alias cat=bat
+export BAT_THEME=zenburn
 
  export JAVA_HOME="$(jenv prefix)"

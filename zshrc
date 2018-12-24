@@ -10,11 +10,13 @@ ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="crunch"
 #ZSH_THEME="dallas"
 #
-ZSH_THEME="geoffgarside"
+# ZSH_THEME="geoffgarside"
+# ZSH_THEME="af-magic"
+# ZSH_THEME="lambda"
 # ZSH_THEME="superjarin"
 
 # ZSH_THEME="dieter"
-# ZSH_THEME="ys"
+ZSH_THEME="ys"
 #ZSH_THEME="tjkirch"
 
 # ZSH_THEME="flazz"
@@ -114,11 +116,12 @@ function kubeapp() {
     kubeto $1 $1
 }
 
-export ANDROID_NDK_HOME=/Users/trybeee/Library/Android/sdk/ndk-bundle
-export ANDROID_NDK=/Users/trybeee/Android/android-ndk/android-ndk-r10e
 
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 
 export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"
 alias jenv_set_java_home='export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"'
+export PATH="/usr/local/opt/qt/bin:$PATH"
+
+source ~/.zprofile

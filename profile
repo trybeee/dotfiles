@@ -13,6 +13,7 @@ export EC2_HOME=/Users/trybeee/.ec2
 export PATH=$PATH:$EC2_HOME/bin
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/Users/trybeee/.nimble/bin:$PATH
 
 source ~/.ssh_aliases
 
@@ -68,9 +69,8 @@ export SDKMAN_DIR="/Users/trybeee/.sdkman"
 [[ -s "/Users/trybeee/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/trybeee/.sdkman/bin/sdkman-init.sh"
 fi
 
-export GOPATH=/Users/trybeee/go
-export PATH=$GOPATH/bin:$PATH
-
 # export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"
 export JAVA_HOME="$(jenv prefix)"
 alias jenv_set_java_home='export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"'
+
+export HOMEBREW_GITHUB_API_TOKEN="629e933ff54b4a390569bd8786f822b4c9430305"
