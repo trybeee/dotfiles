@@ -125,3 +125,9 @@ alias jenv_set_java_home='export JAVA_HOME="$HOME/.jenv/versions/`jenv version-n
 export PATH="/usr/local/opt/qt/bin:$PATH"
 
 source ~/.zprofile
+
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

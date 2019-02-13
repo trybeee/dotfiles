@@ -46,6 +46,7 @@ values."
      javascript
      markdown
      ;; org
+     ;; parinfer
      ;; ruby
      ;; scala
      ;; sql
