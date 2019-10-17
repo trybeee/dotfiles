@@ -9,9 +9,7 @@
                     [lein-nvd "0.5.1"]
                     [lein-re-frisk "0.5.3"]
                     [lein-vanity "0.2.0"]
-                    [lein-localrepo "0.5.4"]
-                    [venantius/yagni "0.1.4"]
-                    [venantius/ultra "0.5.0"]]
+                    [lein-localrepo "0.5.4"]]
          :aliases {"anc" ^{:doc "Check all dependencies for updates"}
                    ["do"
                     ["ancient" "check-profiles" ":all" ":check-clojure"]

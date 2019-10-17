@@ -74,3 +74,6 @@ export JAVA_HOME="$(jenv prefix)"
 alias jenv_set_java_home='export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"'
 
 export HOMEBREW_GITHUB_API_TOKEN="629e933ff54b4a390569bd8786f822b4c9430305"
+if [ -e /Users/trybeee/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/trybeee/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+export PATH="$HOME/.cargo/bin:$PATH"

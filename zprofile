@@ -72,6 +72,8 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH=$PATH:${HOME}/projects/flutter/bin
 
 alias cat=bat
-export BAT_THEME=zenburn
+export BAT_THEME=GitHub
 
  export JAVA_HOME="$(jenv prefix)"
+
+export PATH="$HOME/.cargo/bin:$PATH"
