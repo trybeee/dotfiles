@@ -1,6 +1,6 @@
 [user]
-    name = Dmitry Novotochinov
-    email = dmitry.novot@gmail.com
+    name = Dima Novotochinov
+    email = trybeee@gmail.com
 [core]
     excludesfile = /Users/trybeee/.gitignore_global
     quotepath = false
@@ -20,8 +20,6 @@
     lol = log --pretty=oneline --abbrev-commit --graph --decorate
 [credential]
     helper = cache
-[commit]
-	gpgsign = true
 [branch]
 	autoSetupRebase = always
 	sort = -authordate
