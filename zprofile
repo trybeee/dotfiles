@@ -74,7 +74,7 @@ export PATH=$PATH:${HOME}/projects/flutter/bin
 alias cat=bat
 export BAT_THEME=GitHub
 
- export JAVA_HOME="$(jenv prefix)"
+ #export JAVA_HOME="$(jenv prefix)"
 
 export PATH="$HOME/.cargo/bin:$PATH"
 

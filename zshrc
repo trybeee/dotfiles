@@ -54,7 +54,7 @@ ZSH_THEME="ys"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(bundler brew git github gem osx rails ruby rvm sublime vim)
+plugins=(bundler brew git github gem osx rvm sublime)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -76,8 +76,8 @@ export_boot2docker() {
   $(boot2docker shellinit 2>/dev/null)
 }
 export_boot2docker
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+#export PATH="$HOME/.jenv/bin:$PATH"
+#eval "$(jenv init -)"
 
 psql2 () {
   psql -U `cat ~/.pgpass | grep $1 | cut -d: -f4` -h `cat ~/.pgpass | grep $1 | cut -d: -f1` $2
@@ -125,13 +125,13 @@ function kubeapp() {
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 
-export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"
-alias jenv_set_java_home='export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"'
+#export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"
+#alias jenv_set_java_home='export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"'
 export PATH="/usr/local/opt/qt/bin:$PATH"
 
 source ~/.zprofile
 
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 

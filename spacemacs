@@ -44,10 +44,10 @@ values."
               clojure-enable-clj-refactor t)
      emacs-lisp
      evil-cleverparens
-     (git :variables
-          git-magit-status-fullscreen t
-          git-enable-github-support t
-          git-gutter-use-fringe t)
+     ;; (git :variables
+     ;;      git-magit-status-fullscreen t
+     ;;      git-enable-github-support t
+     ;;      git-gutter-use-fringe t)
      github
      ;; (go :variables go-use-gometalinter t)
      helm
@@ -331,6 +331,8 @@ you should place your code here."
 
   (setq  cider-repl-display-in-current-window t
          cider-repl-toggle-pretty-printing t))
+
+
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
