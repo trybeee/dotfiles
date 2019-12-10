@@ -329,6 +329,8 @@ you should place your code here."
 
   (setq js-indent-level 2)
 
+  (setq vc-follow-symlinks nil)
+
   (setq  cider-repl-display-in-current-window t
          cider-repl-toggle-pretty-printing t))
 
