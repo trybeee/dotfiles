@@ -78,7 +78,7 @@ export BAT_THEME=GitHub
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
-. /Users/trybeee/.nix-profile/etc/profile.d/nix.sh
+# . /Users/trybeee/.nix-profile/etc/profile.d/nix.sh
 
 eval "$(pyenv init -)"
 
