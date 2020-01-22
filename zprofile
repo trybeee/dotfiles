@@ -83,3 +83,5 @@ export PATH="$HOME/.cargo/bin:$PATH"
 eval "$(pyenv init -)"
 
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
+
+export PATH="$HOME/bin:$PATH"
