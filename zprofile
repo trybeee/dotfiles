@@ -85,3 +85,5 @@ eval "$(pyenv init -)"
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
 
 export PATH="$HOME/bin:$PATH"
+
+alias ag='ag --path-to-ignore ~/.ignore'
