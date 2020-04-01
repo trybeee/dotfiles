@@ -18,12 +18,9 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
-     ;; python
-     html
      ;; rust
      ;; yaml
      ;; ruby
-     ;; python
      ;; yaml
      ;; octave
      ;; ----------------------------------------------------------------
@@ -40,6 +37,7 @@ values."
      ;; (haskell :variables haskell-completion-backend 'intero)
      ;; (haskell :variables haskell-enable-hindent-style "johan-tibell")
      (clojure :variables
+              clojure-enable-linters '(clj-kondo)
               clojure-enable-fancify-symbols t
               clojure-enable-clj-refactor t)
      emacs-lisp
@@ -52,12 +50,13 @@ values."
      github
      ;; (go :variables go-use-gometalinter t)
      helm
-     ;; html
+     html
      javascript
      ;;lsp
      markdown
      ;; org
      ;; parinfer
+     python
      ;; ruby
      ;; scala
      ;; sql
@@ -136,8 +135,10 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(tangotango
+   dotspacemacs-themes '(material-light
                          spacemacs-light
+                         tangotango
+                         flatland
                          subatomic
                          zenburn
                          oldlace
@@ -279,6 +280,12 @@ values."
    ;; (default nil)
    dotspacemacs-whitespace-cleanup nil))
 
+(defun cljfmt ()
+  (when (or (eq major-mode 'clojure-mode)
+            (eq major-mode 'clojurescript-mode))
+    (shell-command-to-string (format "/Users/dima/Projects/pitch-app/scripts/cljfmt fix %s" buffer-file-name))
+    (revert-buffer :ignore-auto :noconfirm)))
+
 (defun dotspacemacs/user-init ()
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init', before layer configuration
@@ -287,28 +294,7 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (setq configuration-layer-elpa-archives '(("melpa" . "melpa.org/packages/")
-                                            ("org" . "orgmode.org/elpa/") ("gnu" . "elpa.gnu.org/packages/")))
-
-  (add-hook 'clojure-mode-hook 'turn-on-fci-mode))
-
-(defun set-figwheel-profile ()
-    (set-variable 'cider-lein-parameters "with-profile +figwheel repl :headless"))
-
-(defun start-cider-repl-with-profile ()
-  (interactive)
-  (letrec ((profile (read-string "Enter profile name: "))
-           (lein-params (concat "with-profile +" profile " repl :headless")))
-    (message "lein-params set to: %s" lein-params)
-    (set-variable 'cider-lein-parameters lein-params)
-    (cider-jack-in)))
-
-(defun cljs-repl ()
-  (interactive)
-  ;; (save-some-buffers)
-  (with-current-buffer (cider-current-repl-buffer)
-    (goto-char (point-max))
-    (insert "(figwheel-sidecar.repl-api/cljs-repl)")
-    (cider-repl-return)))
+                                            ("org" . "orgmode.org/elpa/") ("gnu" . "elpa.gnu.org/packages/"))))
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -324,6 +310,7 @@ you should place your code here."
       "F" 'start-cider-repl-with-profile))
 
   (setq-default helm-follow-mode-persistent nil)
+  ;; (add-to-list 'projectile-globally-ignored-files "cljfmt-graalvm")
 
   ;; (use-package lsp-mode
   ;;   :ensure t
@@ -348,6 +335,8 @@ you should place your code here."
 
   (spacemacs/toggle-evil-cleverparens-on)
   (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
+
+  (setq show-smartparens-global-mode nil)
 
   (setq js-indent-level 2)
 
