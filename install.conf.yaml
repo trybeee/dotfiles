@@ -15,5 +15,6 @@
       create: true
       path: plugins.sbt
     ~/.spacemacs: spacemacs
+    ~/.doom.d: doom.d
 - shell:
   - [git submodule update --init --recursive, Installing/updating submodules]
