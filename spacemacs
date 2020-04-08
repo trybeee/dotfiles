@@ -137,6 +137,8 @@ values."
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(material-light
                          spacemacs-light
+                         flatui
+                         tango-plus
                          tangotango
                          flatland
                          subatomic
@@ -332,6 +334,8 @@ you should place your code here."
   ;;   (add-hook 'clojurescript-mode-hook #'lsp))
 
   (setq ns-pop-up-frames nil)
+
+  (add-hook 'after-save-hook 'cljfmt)
 
   (spacemacs/toggle-evil-cleverparens-on)
   (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
