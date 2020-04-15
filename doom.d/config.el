@@ -19,13 +19,14 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "monospace" :size 14))
+(setq doom-font (font-spec :family "Fira Code Retina" :size 12))
+;;(setq doom-font (font-spec :family "monospace" :size 14))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-opera-light)
-;;(setq doom-theme 'doom-nova)
+;; (setq doom-theme 'doom-opera-light)
+(setq doom-theme 'doom-nova)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -43,6 +44,14 @@
           (:map (clojure-mode-map clojurescript-mode-map)
             (:prefix ("e" . "eval")
               "f" #'cider-eval-defun-at-point))))
+
+(map! :map clojure-mode-map
+      :n ">" #'sp-slurp-hybrid-sexp
+      :n "<" #'sp-backward-barf-sexp)
+
+;; (map! :prefix doom-leader-key "/" #'+ivy/project-search)
+
+;; (add-hook! cider-repl-mode #'evil-normalize-keymaps)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
