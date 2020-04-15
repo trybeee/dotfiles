@@ -45,9 +45,9 @@
             (:prefix ("e" . "eval")
               "f" #'cider-eval-defun-at-point))))
 
-(map! :map clojure-mode-map
-      :n ">" #'sp-slurp-hybrid-sexp
-      :n "<" #'sp-backward-barf-sexp)
+(evil-define-key 'normal clojure-mode-map
+  ">" #'sp-slurp-hybrid-sexp
+  "<" #'sp-backward-barf-sexp)
 
 ;; (map! :prefix doom-leader-key "/" #'+ivy/project-search)
 
