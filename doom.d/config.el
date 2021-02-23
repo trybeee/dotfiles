@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
-(setq user-full-name "John Doe"
-      user-mail-address "john@doe.com")
+(setq user-full-name "Dima Novotochinov"
+      user-mail-address "trybeee@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -19,14 +19,41 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "Fira Code Retina" :size 12))
+;; (setq doom-font (font-spec :family "Fira Code" :size 14))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 14))
 ;;(setq doom-font (font-spec :family "monospace" :size 14))
+;;
+(defconst jetbrains-ligature-mode--ligatures
+  '("-->" "//" "/**" "/*" "*/" "<!--" ":=" "->>" "<<-" "->" "<-"
+    "<=>" "==" "!=" "<=" ">=" "=:=" "!==" "&&" "||" "..." ".."
+    "|||" "///" "&&&" "===" "++" "--" "=>" "|>" "<|" "||>" "<||"
+    "|||>" "<|||" ">>" "<<" "::=" "|]" "[|" "{|" "|}"
+    "[<" ">]" ":?>" ":?" "/=" "[||]" "!!" "?:" "?." "::"
+    "+++" "??" "###" "##" ":::" "####" ".?" "?=" "=!=" "<|>"
+    "<:" ":<" ":>" ">:" "<>" "***" ";;" "/==" ".=" ".-" "__"
+    "=/=" "<-<" "<<<" ">>>" "<=<" "<<=" "<==" "<==>" "==>" "=>>"
+    ">=>" ">>=" ">>-" ">-" "<~>" "-<" "-<<" "=<<" "---" "<-|"
+    "<=|" "/\\" "\\/" "|=>" "|~>" "<~~" "<~" "~~" "~~>" "~>"
+    "<$>" "<$" "$>" "<+>" "<+" "+>" "<*>" "<*" "*>" "</>" "</" "/>"
+    "<->" "..<" "~=" "~-" "-~" "~@" "^=" "-|" "_|_" "|-" "||-"
+    "|=" "||=" "#{" "#[" "]#" "#(" "#?" "#_" "#_(" "#:" "#!" "#="
+    "&="))
+
+(dolist (pat jetbrains-ligature-mode--ligatures)
+  (set-char-table-range composition-function-table
+                        (aref pat 0)
+                        (nconc (char-table-range composition-function-table (aref pat 0))
+                               (list (vector (regexp-quote pat)
+                                             0
+                                             'compose-gstring-for-graphic)))))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 ;; (setq doom-theme 'doom-opera-light)
-(setq doom-theme 'doom-nova)
+;; (setq doom-theme 'doom-nova)
+;; (setq doom-theme 'doom-fairy-floss)
+(setq doom-theme 'doom-one-light)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -38,6 +65,8 @@
 
 (setq doom-localleader-key ",")
 
+(require 'stylus-mode)
+
 ;; (define-key clojure-mode-map (kbd ", e f") #'cider-eval-defun-at-point)
 
 (map! (:localleader
@@ -48,6 +77,61 @@
 (evil-define-key 'normal clojure-mode-map
   ">" #'sp-slurp-hybrid-sexp
   "<" #'sp-backward-barf-sexp)
+
+
+(map! :leader
+      ;; undoes all the other window bindings?
+      (:prefix "w"
+         :nv :desc "Split window right" "|"  #'split-window-right
+         :nv :desc "Split window below" "-"  #'split-window-below
+         :nvie :desc "Winner redo" "U" #'winner-redo)
+
+      (:prefix "c"
+        ;; also works for cider jumping
+        :nv :desc "Jump back" "b"  #'dumb-jump-back)
+
+      (:prefix "k"
+        :nv :desc "Kill sexp" "k" #'paredit-kill
+        :nv :desc "Wrap with ()" "w" #'sp-wrap-round
+        :nv :desc "Unwrap with ()" "W" #'sp-unwrap-sexp
+        :nv :desc "Barf" "b" #'sp-forward-barf-sexp
+        :nv :desc "Slurp" "s" #'sp-forward-slurp-sexp
+        :nv :desc "Raise" "r" #'sp-raise-sexp)
+
+      (:prefix "j"
+        :nv :desc "Jump to symbol" "i" #'imenu
+        :nv :desc "Jump to symbol across buffers" "I" #'imenu-anywhere
+        :nv :desc "Jump to link" "l" #'ace-link
+        :nv :desc "Avy jump" "j" #'avy-goto-char-timer)
+
+      (:prefix "p"
+        :nv :desc "Find file in project" "f" #'projectile-find-file
+        :nv :desc "Neotree" "t" #'neotree-open-this)
+
+      (:prefix "o"
+        :nv :desc "Neotree for this file" "p" #'neotree-open-this)
+
+      (:prefix "b"
+        :nv :desc "Switch buffer"               "b" #'switch-to-buffer
+        :nv :desc "Delete buffer"               "d" #'kill-this-buffer
+        :nv :desc "Recent files"                "r" #'recentf-open-files)
+
+      (:when (featurep! :tools magit)
+        (:prefix-map ("g" . "git")
+          :desc "Magit status"              "s" #'magit-status
+          :desc "Git link"                  "ll" #'git-link
+          :desc "Magit switch branch"       "B" #'magit-branch-checkout
+          :desc "Magit blame"               "b" #'magit-blame-addition)))
+
+(add-to-list 'load-path "~/bin/")
+
+;; (autoload 'anakondo-minor-mode "anakondo")
+;; ;; Enable anakondo-minor-mode in all Clojure buffers
+;; (add-hook 'clojure-mode-hook #'anakondo-minor-mode)
+;; ;; Enable anakondo-minor-mode in all ClojureScript buffers
+;; (add-hook 'clojurescript-mode-hook #'anakondo-minor-mode)
+;; ;; Enable anakondo-minor-mode in all cljc buffers
+;; (add-hook 'clojurec-mode-hook #'anakondo-minor-mode)
 
 ;; (map! :prefix doom-leader-key "/" #'+ivy/project-search)
 
